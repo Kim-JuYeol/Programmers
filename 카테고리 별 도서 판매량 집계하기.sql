@@ -1,0 +1,6 @@
+SELECT CATEGORY , SUM(SALES) as TOTAL_SALES
+from BOOK a
+LEFT JOIN(SELECT * from BOOK_SALES) b on b.book_id = a.book_id
+where DATE_FORMAT(sales_date, '%Y-%m') = '2022-01'
+GROUP BY CATEGORY
+ORDER BY CATEGORY ASC;
